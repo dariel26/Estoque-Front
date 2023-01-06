@@ -15,6 +15,7 @@ export const Api = {
 
     //Access
     login: async (loginParams) => await api.post(`/access/${accessVersion}/login`, loginParams),
+    logout: async (token) => await api.post(`/access/${accessVersion}/logout?token=${token}`),
     activeAccount: async (email, link) => await api.post(`/access/${accessVersion}/active-account`, { email, link }),
     changePassword: async (email, link) => await api.post(`/access/${accessVersion}/change-password`, { email, link }),
     ping: async (token) => await api.get(`/access/${accessVersion}/ping?token=${token}`),

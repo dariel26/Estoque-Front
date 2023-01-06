@@ -89,6 +89,7 @@ export function paramsAlert(config = {
     createUser: false,
     confirmEmail: false,
     changePassword: false,
+    home: false,
 }) {
     const {
         success,
@@ -102,6 +103,7 @@ export function paramsAlert(config = {
         createUser,
         confirmEmail,
         changePassword,
+        home,
     } = config;
 
     if (success) {
@@ -115,7 +117,9 @@ export function paramsAlert(config = {
                         ? { title: "E-mail Enviado", message: "Foi enviado um e-mail para trocar sua senha" }
                         : inactiveAccount
                             ? { title: "E-mail Enviado", message: "Foi enviado um e-mail para ativar sua conta" }
-                            : undefined;
+                            : home
+                                ? { title: "Deslogado", message: "Você foi deslogado", time: 1500 }
+                                : undefined
     } else if (danger) {
         return nonExistentEmail
             ? { title: "E-mail Inexistente", message: "O e-mail colcoado não existe no banco de dados", time: 2000 }

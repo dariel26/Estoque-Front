@@ -32,10 +32,13 @@ export default function Router() {
                 ))}
 
                 <Route path="/home" element={<Alert><Logged><Home /></Logged></Alert>} >
-                    <Route path="estoque" element={<div>Estoque</div>} />
-                    <Route index element={<Navigate replace to="estoque" />} />
+                    <Route path="register-sale" element={<div>Registrar Venda</div>} />
+                    <Route path="products" element={<div>Produtos</div>} />
+                    <Route path="historic" element={<div>Histórico</div>} />
+                    <Route path="results" element={<div>Resultados</div>} />
+                    <Route index element={<Navigate replace to="register-sale" />} />
                 </Route>
-                <Route path="*" element={<Navigate replace to="/login" />} />
+                <Route path="*" element={<Navigate replace to="/home" />} />
             </Routes>
         </BrowserRouter>
     );
